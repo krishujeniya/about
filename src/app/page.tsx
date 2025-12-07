@@ -12,11 +12,13 @@ import { GoldenLeaves } from '@/components/golden-leaves';
 import { useLanguage } from '@/context/language-context';
 import { DownloadPdfButton } from '@/components/download-pdf-button';
 
+// Note: Metadata is defined in layout.tsx for static export compatibility
+
 export default function Home() {
   const { t } = useLanguage();
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen text-foreground p-4 sm:p-6 md:p-8 overflow-hidden print:p-8 print:block print:min-h-0 print:bg-transparent">
-      
+
       <div className="w-full max-w-4xl relative z-10 print:max-w-none print:w-full">
         <header className="w-full max-w-4xl print:hidden">
           <LanguageSwitcher />
@@ -27,7 +29,7 @@ export default function Home() {
             <GoldenLeaves position="top-left" />
             <GoldenLeaves position="bottom-right" />
           </div>
-          
+
           <div className="print:py-20">
             <AnimatedSection delay={0}>
               <ProfileHeader />
@@ -37,7 +39,7 @@ export default function Home() {
           <AnimatedSection delay={100} className="print:break-before-page print:pt-8">
             <PhotoGallery />
           </AnimatedSection>
-          
+
           <AnimatedSection delay={200}>
             <EducationCareer />
           </AnimatedSection>

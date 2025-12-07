@@ -1,17 +1,10 @@
 import type { NextConfig } from 'next';
-
-const repoName = 'chirag-ujeniya'; // Make sure this matches your GitHub repo name exactly
+import { GITHUB_REPO } from './src/config/site';
 
 const nextConfig: NextConfig = {
   output: 'export', // Export as a static site
-  basePath: process.env.NODE_ENV === 'production' ? `/${repoName}` : '', // Required for GitHub Pages
-  assetPrefix: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '', // Required for GitHub Pages
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  basePath: process.env.NODE_ENV === 'production' ? `/${GITHUB_REPO}` : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? `/${GITHUB_REPO}/` : '',
   images: {
     unoptimized: true, // Disable Next.js image optimization for static export
     remotePatterns: [
